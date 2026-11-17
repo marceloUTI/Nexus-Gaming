@@ -1,1 +1,13 @@
-@media(min-width:1000px){.container-main{padding-top:48px}}@media(max-width:600px){.section-title{font-size:1.4rem}.toolbar .field{width:100%}}
+@media (min-width: 1000px) {
+  .container-main {
+    padding-top: 48px;
+  }
+}
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.4rem;
+  }
+  .toolbar .field {
+    width: 100%;
+  }
+}

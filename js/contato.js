@@ -1,1 +1,70 @@
-const formulario=document.querySelector('#contact-form');const saida=document.querySelector('#saved-messages');const status=document.querySelector('#contact-status');const chaveContato='nexusMensagens';function lerMensagens(){try{const m=JSON.parse(localStorage.getItem(chaveContato)||'[]');return Array.isArray(m)?m:[]}catch{return []}}function exibirMensagens(){saida.replaceChildren();const lista=lerMensagens();if(!lista.length){saida.textContent='Nenhuma mensagem salva.';return}for(const m of lista){const box=document.createElement('div');box.className='notice';const title=document.createElement('strong');title.textContent=m.nome+' — '+m.assunto;const msg=document.createElement('p');msg.textContent=m.mensagem;const mail=document.createElement('small');mail.textContent=m.email;box.append(title,msg,mail);saida.append(box)}}formulario.addEventListener('submit',event=>{event.preventDefault();if(!formulario.reportValidity())return;const data=new FormData(formulario);const registro={nome:String(data.get('nome')).trim(),email:String(data.get('email')).trim(),assunto:String(data.get('assunto')),mensagem:String(data.get('mensagem')).trim()};const lista=lerMensagens();lista.push(registro);try{localStorage.setItem(chaveContato,JSON.stringify(lista));status.hidden=false;status.textContent='Mensagem salva apenas neste navegador.';formulario.reset();exibirMensagens()}catch{status.hidden=false;status.textContent='Não foi possível salvar. Verifique as permissões de armazenamento.'}});document.querySelector('#clear-messages').addEventListener('click',()=>{if(confirm('Apagar todas as mensagens locais?')){try{localStorage.removeItem(chaveContato);status.hidden=false;status.textContent='Mensagens apagadas.';exibirMensagens()}catch{status.hidden=false;status.textContent='Não foi possível apagar os dados.'}}});exibirMensagens();
+const formulario = document.querySelector("#contact-form");
+const saida = document.querySelector("#saved-messages");
+const status = document.querySelector("#contact-status");
+const chaveContato = "nexusMensagens";
+function lerMensagens() {
+  try {
+    const m = JSON.parse(localStorage.getItem(chaveContato) || "[]");
+    return Array.isArray(m) ? m : [];
+  } catch {
+    return [];
+  }
+}
+function exibirMensagens() {
+  saida.replaceChildren();
+  const lista = lerMensagens();
+  if (!lista.length) {
+    saida.textContent = "Nenhuma mensagem salva.";
+    return;
+  }
+  for (const m of lista) {
+    const box = document.createElement("div");
+    box.className = "notice";
+    const title = document.createElement("strong");
+    title.textContent = m.nome + " — " + m.assunto;
+    const msg = document.createElement("p");
+    msg.textContent = m.mensagem;
+    const mail = document.createElement("small");
+    mail.textContent = m.email;
+    box.append(title, msg, mail);
+    saida.append(box);
+  }
+}
+formulario.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (!formulario.reportValidity()) return;
+  const data = new FormData(formulario);
+  const registro = {
+    nome: String(data.get("nome")).trim(),
+    email: String(data.get("email")).trim(),
+    assunto: String(data.get("assunto")),
+    mensagem: String(data.get("mensagem")).trim(),
+  };
+  const lista = lerMensagens();
+  lista.push(registro);
+  try {
+    localStorage.setItem(chaveContato, JSON.stringify(lista));
+    status.hidden = false;
+    status.textContent = "Mensagem salva apenas neste navegador.";
+    formulario.reset();
+    exibirMensagens();
+  } catch {
+    status.hidden = false;
+    status.textContent =
+      "Não foi possível salvar. Verifique as permissões de armazenamento.";
+  }
+});
+document.querySelector("#clear-messages").addEventListener("click", () => {
+  if (confirm("Apagar todas as mensagens locais?")) {
+    try {
+      localStorage.removeItem(chaveContato);
+      status.hidden = false;
+      status.textContent = "Mensagens apagadas.";
+      exibirMensagens();
+    } catch {
+      status.hidden = false;
+      status.textContent = "Não foi possível apagar os dados.";
+    }
+  }
+});
+exibirMensagens();

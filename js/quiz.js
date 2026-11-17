@@ -1,1 +1,105 @@
-const perguntas=[{"q": "Qual elemento HTML representa o conteúdo principal?", "options": ["main", "span", "footer", "style"], "correct": 0}, {"q": "Qual recurso CSS organiza elementos em linhas e colunas?", "options": ["localStorage", "CSS Grid", "alert", "querySelector"], "correct": 1}, {"q": "Qual método armazena dados no navegador?", "options": ["console.log", "getElementById", "localStorage.setItem", "addEventListener"], "correct": 2}, {"q": "Qual linguagem manipula o DOM?", "options": ["JavaScript", "HTML", "CSS", "SVG"], "correct": 0}, {"q": "Qual atributo torna um campo obrigatório?", "options": ["placeholder", "required", "pattern", "class"], "correct": 1}];let indice=0;let pontos=0;const questao=document.querySelector('#question');const alternativas=document.querySelector('#choices');const progresso=document.querySelector('#progress');const feedback=document.querySelector('#feedback');const avancar=document.querySelector('#next-question');const recorde=document.querySelector('#best-score');function getRecord(){try{return Number(localStorage.getItem('nexusQuizRecorde')||0)}catch{return 0}}function salvarRecorde(v){try{localStorage.setItem('nexusQuizRecorde',String(v))}catch{}}function mostrar(){const p=perguntas[indice];questao.textContent=p.q;progresso.textContent='Pergunta '+(indice+1)+' de '+perguntas.length;feedback.textContent='';avancar.hidden=true;alternativas.replaceChildren();p.options.forEach((op,i)=>{const b=document.createElement('button');b.className='quiz-choice';b.textContent=op;b.addEventListener('click',()=>responder(i));alternativas.append(b)})}function responder(escolha){const acertou=escolha===perguntas[indice].correct;if(acertou)pontos++;feedback.textContent=acertou?'Resposta correta!':'Resposta incorreta. Correta: '+perguntas[indice].options[perguntas[indice].correct];alternativas.querySelectorAll('button').forEach(b=>b.disabled=true);avancar.hidden=false;avancar.textContent=indice===perguntas.length-1?'Ver resultado':'Próxima pergunta'}avancar.addEventListener('click',()=>{indice++;if(indice<perguntas.length){mostrar();return}const anterior=getRecord();if(pontos>anterior)salvarRecorde(pontos);questao.textContent='Você acertou '+pontos+' de '+perguntas.length+' perguntas!';progresso.textContent='Quiz concluído';alternativas.replaceChildren();feedback.textContent='Recorde: '+getRecord()+' ponto(s)';avancar.hidden=true;document.querySelector('#restart').hidden=false;recorde.textContent='Recorde local: '+getRecord()});document.querySelector('#restart').addEventListener('click',()=>{indice=0;pontos=0;document.querySelector('#restart').hidden=true;mostrar()});recorde.textContent='Recorde local: '+getRecord();mostrar();
+const perguntas = [
+  {
+    q: "Qual elemento HTML representa o conteúdo principal?",
+    options: ["main", "span", "footer", "style"],
+    correct: 0,
+  },
+  {
+    q: "Qual recurso CSS organiza elementos em linhas e colunas?",
+    options: ["localStorage", "CSS Grid", "alert", "querySelector"],
+    correct: 1,
+  },
+  {
+    q: "Qual método armazena dados no navegador?",
+    options: [
+      "console.log",
+      "getElementById",
+      "localStorage.setItem",
+      "addEventListener",
+    ],
+    correct: 2,
+  },
+  {
+    q: "Qual linguagem manipula o DOM?",
+    options: ["JavaScript", "HTML", "CSS", "SVG"],
+    correct: 0,
+  },
+  {
+    q: "Qual atributo torna um campo obrigatório?",
+    options: ["placeholder", "required", "pattern", "class"],
+    correct: 1,
+  },
+];
+let indice = 0;
+let pontos = 0;
+const questao = document.querySelector("#question");
+const alternativas = document.querySelector("#choices");
+const progresso = document.querySelector("#progress");
+const feedback = document.querySelector("#feedback");
+const avancar = document.querySelector("#next-question");
+const recorde = document.querySelector("#best-score");
+function getRecord() {
+  try {
+    return Number(localStorage.getItem("nexusQuizRecorde") || 0);
+  } catch {
+    return 0;
+  }
+}
+function salvarRecorde(v) {
+  try {
+    localStorage.setItem("nexusQuizRecorde", String(v));
+  } catch {}
+}
+function mostrar() {
+  const p = perguntas[indice];
+  questao.textContent = p.q;
+  progresso.textContent =
+    "Pergunta " + (indice + 1) + " de " + perguntas.length;
+  feedback.textContent = "";
+  avancar.hidden = true;
+  alternativas.replaceChildren();
+  p.options.forEach((op, i) => {
+    const b = document.createElement("button");
+    b.className = "quiz-choice";
+    b.textContent = op;
+    b.addEventListener("click", () => responder(i));
+    alternativas.append(b);
+  });
+}
+function responder(escolha) {
+  const acertou = escolha === perguntas[indice].correct;
+  if (acertou) pontos++;
+  feedback.textContent = acertou
+    ? "Resposta correta!"
+    : "Resposta incorreta. Correta: " +
+      perguntas[indice].options[perguntas[indice].correct];
+  alternativas.querySelectorAll("button").forEach((b) => (b.disabled = true));
+  avancar.hidden = false;
+  avancar.textContent =
+    indice === perguntas.length - 1 ? "Ver resultado" : "Próxima pergunta";
+}
+avancar.addEventListener("click", () => {
+  indice++;
+  if (indice < perguntas.length) {
+    mostrar();
+    return;
+  }
+  const anterior = getRecord();
+  if (pontos > anterior) salvarRecorde(pontos);
+  questao.textContent =
+    "Você acertou " + pontos + " de " + perguntas.length + " perguntas!";
+  progresso.textContent = "Quiz concluído";
+  alternativas.replaceChildren();
+  feedback.textContent = "Recorde: " + getRecord() + " ponto(s)";
+  avancar.hidden = true;
+  document.querySelector("#restart").hidden = false;
+  recorde.textContent = "Recorde local: " + getRecord();
+});
+document.querySelector("#restart").addEventListener("click", () => {
+  indice = 0;
+  pontos = 0;
+  document.querySelector("#restart").hidden = true;
+  mostrar();
+});
+recorde.textContent = "Recorde local: " + getRecord();
+mostrar();

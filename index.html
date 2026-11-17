@@ -1,1 +1,161 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Portal gamer demonstrativo com notícias, análises e quiz"><title>Início | Nexus Gaming</title><link rel="stylesheet" href="css/bootstrap.min.css"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsivo.css"></head><body><header class="site-header"><nav class="nav-shell" aria-label="Navegação principal"><a class="brand" href="index.html">NEXUS <span>GAMING</span></a><button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-links" type="button">☰ Menu</button><div class="nav-links" id="nav-links"><a href="index.html" aria-current=page>Início</a><a href="noticias.html" >Notícias</a><a href="analises.html" >Análises</a><a href="lancamentos.html" >Lançamentos</a><a href="galeria.html" >Galeria</a><a href="multimidia.html" >Multimídia</a><a href="quiz.html" >Quiz</a><a href="favoritos.html" >Favoritos</a><a href="sobre.html" >Sobre</a><a href="contato.html" >Contato</a><a href="https://www.ign.com" target="_blank" rel="noopener noreferrer">IGN ↗</a></div></nav></header><main class="container-main" id="conteudo"><section class="hero"><div class="eyebrow">Seu universo gamer começa aqui</div><h1>O próximo nível<br><span class="accent">da informação gamer.</span></h1><p class="lead">Descubra jogos fictícios criados para demonstrar um portal editorial, explore análises, teste seus conhecimentos e salve favoritos.</p><a class="btn-nexus" href="noticias.html">Explorar notícias</a></section><div class="alert alert-info" role="status">Portal acadêmico: jogos, notas e notícias apresentados aqui são conteúdos demonstrativos.</div><h2 class="section-title">Em destaque</h2><div class="cards"><article class="game-card"><img src="img/game-1.svg" alt="Arte ilustrativa original de Nebula Protocol"><div class="card-content"><span class="pill">Aventura espacial</span><h3>Nebula Protocol</h3><p>Uma jornada de exploração em mundos desconhecidos.</p><a href="analises.html#game-1" class="btn-nexus">Detalhes</a><button class="btn-nexus btn-outline-nexus favorite-btn" data-id="0">☆ Favoritar</button></div></article><article class="game-card"><img src="img/game-2.svg" alt="Arte ilustrativa original de Iron Circuit"><div class="card-content"><span class="pill">Corrida futurista</span><h3>Iron Circuit</h3><p>Velocidade, estratégia e circuitos de alta tecnologia.</p><a href="analises.html#game-2" class="btn-nexus">Detalhes</a><button class="btn-nexus btn-outline-nexus favorite-btn" data-id="1">☆ Favoritar</button></div></article><article class="game-card"><img src="img/game-3.svg" alt="Arte ilustrativa original de Shadow Realm"><div class="card-content"><span class="pill">RPG de fantasia</span><h3>Shadow Realm</h3><p>Explore ruínas, descubra segredos e personalize seu herói.</p><a href="analises.html#game-3" class="btn-nexus">Detalhes</a><button class="btn-nexus btn-outline-nexus favorite-btn" data-id="2">☆ Favoritar</button></div></article></div><h2 class="section-title">Explore o portal</h2><div class="cards"><article class="game-card"><div class="card-content"><h3>Quiz Gamer</h3><p>Teste seus conhecimentos e acompanhe seu recorde.</p><a class="btn-nexus" href="quiz.html">Jogar</a></div></article><article class="game-card"><div class="card-content"><h3>Próximos lançamentos</h3><p>Consulte nossa agenda fictícia de títulos.</p><a class="btn-nexus" href="lancamentos.html">Ver agenda</a></div></article><article class="game-card"><div class="card-content"><h3>Multimídia</h3><p>Confira vídeo e áudio produzidos para o projeto.</p><a class="btn-nexus" href="multimidia.html">Assistir</a></div></article></div></main><footer class="footer"><strong>NEXUS GAMING</strong><p>Projeto acadêmico demonstrativo · Marcelo Expedito e Hemanuel · 2026</p><a href="sobre.html">Sobre</a><a href="contato.html">Contato</a><a href="https://developer.mozilla.org/pt-BR/" target="_blank" rel="noopener noreferrer">MDN ↗</a></footer><script src="js/main.js" defer></script><script src="js/bootstrap.bundle.min.js" defer></script><script src="js/favoritos.js" defer></script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Portal gamer demonstrativo com notícias, análises e quiz"
+    />
+    <title>Início | Nexus Gaming</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsivo.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Navegação principal">
+        <a class="brand" href="index.html">NEXUS <span>GAMING</span></a
+        ><button
+          id="nav-toggle"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          type="button"
+        >
+          ☰ Menu
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html" aria-current="page">Início</a
+          ><a href="noticias.html">Notícias</a
+          ><a href="analises.html">Análises</a
+          ><a href="lancamentos.html">Lançamentos</a
+          ><a href="galeria.html">Galeria</a
+          ><a href="multimidia.html">Multimídia</a><a href="quiz.html">Quiz</a
+          ><a href="favoritos.html">Favoritos</a><a href="sobre.html">Sobre</a
+          ><a href="contato.html">Contato</a
+          ><a
+            href="https://www.ign.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >IGN ↗</a
+          >
+        </div>
+      </nav>
+    </header>
+    <main class="container-main" id="conteudo">
+      <section class="hero">
+        <div class="eyebrow">Seu universo gamer começa aqui</div>
+        <h1>
+          O próximo nível<br /><span class="accent">da informação gamer.</span>
+        </h1>
+        <p class="lead">
+          Descubra jogos fictícios criados para demonstrar um portal editorial,
+          explore análises, teste seus conhecimentos e salve favoritos.
+        </p>
+        <a class="btn-nexus" href="noticias.html">Explorar notícias</a>
+      </section>
+      <div class="alert alert-info" role="status">
+        Portal acadêmico: jogos, notas e notícias apresentados aqui são
+        conteúdos demonstrativos.
+      </div>
+      <h2 class="section-title">Em destaque</h2>
+      <div class="cards">
+        <article class="game-card">
+          <img
+            src="img/game-1.svg"
+            alt="Arte ilustrativa original de Nebula Protocol"
+          />
+          <div class="card-content">
+            <span class="pill">Aventura espacial</span>
+            <h3>Nebula Protocol</h3>
+            <p>Uma jornada de exploração em mundos desconhecidos.</p>
+            <a href="analises.html#game-1" class="btn-nexus">Detalhes</a
+            ><button
+              class="btn-nexus btn-outline-nexus favorite-btn"
+              data-id="0"
+            >
+              ☆ Favoritar
+            </button>
+          </div>
+        </article>
+        <article class="game-card">
+          <img
+            src="img/game-2.svg"
+            alt="Arte ilustrativa original de Iron Circuit"
+          />
+          <div class="card-content">
+            <span class="pill">Corrida futurista</span>
+            <h3>Iron Circuit</h3>
+            <p>Velocidade, estratégia e circuitos de alta tecnologia.</p>
+            <a href="analises.html#game-2" class="btn-nexus">Detalhes</a
+            ><button
+              class="btn-nexus btn-outline-nexus favorite-btn"
+              data-id="1"
+            >
+              ☆ Favoritar
+            </button>
+          </div>
+        </article>
+        <article class="game-card">
+          <img
+            src="img/game-3.svg"
+            alt="Arte ilustrativa original de Shadow Realm"
+          />
+          <div class="card-content">
+            <span class="pill">RPG de fantasia</span>
+            <h3>Shadow Realm</h3>
+            <p>Explore ruínas, descubra segredos e personalize seu herói.</p>
+            <a href="analises.html#game-3" class="btn-nexus">Detalhes</a
+            ><button
+              class="btn-nexus btn-outline-nexus favorite-btn"
+              data-id="2"
+            >
+              ☆ Favoritar
+            </button>
+          </div>
+        </article>
+      </div>
+      <h2 class="section-title">Explore o portal</h2>
+      <div class="cards">
+        <article class="game-card">
+          <div class="card-content">
+            <h3>Quiz Gamer</h3>
+            <p>Teste seus conhecimentos e acompanhe seu recorde.</p>
+            <a class="btn-nexus" href="quiz.html">Jogar</a>
+          </div>
+        </article>
+        <article class="game-card">
+          <div class="card-content">
+            <h3>Próximos lançamentos</h3>
+            <p>Consulte nossa agenda fictícia de títulos.</p>
+            <a class="btn-nexus" href="lancamentos.html">Ver agenda</a>
+          </div>
+        </article>
+        <article class="game-card">
+          <div class="card-content">
+            <h3>Multimídia</h3>
+            <p>Confira vídeo e áudio produzidos para o projeto.</p>
+            <a class="btn-nexus" href="multimidia.html">Assistir</a>
+          </div>
+        </article>
+      </div>
+    </main>
+    <footer class="footer">
+      <strong>NEXUS GAMING</strong>
+      <p>
+        Projeto acadêmico demonstrativo · Marcelo Expedito e Hemanuel · 2026
+      </p>
+      <a href="sobre.html">Sobre</a><a href="contato.html">Contato</a
+      ><a
+        href="https://developer.mozilla.org/pt-BR/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >MDN ↗</a
+      >
+    </footer>
+    <script src="js/main.js" defer></script>
+    <script src="js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/favoritos.js" defer></script>
+  </body>
+</html>

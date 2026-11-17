@@ -1,1 +1,11 @@
-.quiz-panel{max-width:720px;margin:auto;background:#151c2e;padding:30px;border-radius:18px;border:1px solid #3c4565}.quiz-panel h2{font-size:1.4rem}
+.quiz-panel {
+  max-width: 720px;
+  margin: auto;
+  background: #151c2e;
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid #3c4565;
+}
+.quiz-panel h2 {
+  font-size: 1.4rem;
+}
